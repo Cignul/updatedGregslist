@@ -19,8 +19,6 @@
     <input type="text" name="model" placeholder="Model" required>
     <input type="number" name="year" placeholder="Year" value="2000" required>
     <input type="text" name="price" placeholder="Price" required>
-    <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
-    <button onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
     <input type="text" name="description" placeholder="Description" required>
     <input type="url" name="imgUrl" placeholder="Image Link" required>
     <button type="submit">Add Car</button>
@@ -36,8 +34,8 @@
     <input type="number" name="price" placeholder="price" required>
     <button type="submit">Add House</button>
   </form>
-  <div id="cars"></div>
-  <div id="houses"></div>
+  <div id="cars" class="row"></div>
+  <div id="houses" class="row"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
