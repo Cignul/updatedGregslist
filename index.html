@@ -19,22 +19,25 @@
     <input type="text" name="model" placeholder="Model" required>
     <input type="number" name="year" placeholder="Year" value="2000" required>
     <input type="text" name="price" placeholder="Price" required>
-    <input type="text" name="color" placeholder="Color" required>
+    <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
+    <button onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
+    <input type="text" name="description" placeholder="Description" required>
     <input type="url" name="imgUrl" placeholder="Image Link" required>
     <button type="submit">Add Car</button>
   </form>
 
-  <div class="container">
-    <div id="cars" class="row">
-      <!-- <div class="col-3">
-        <p>${car.make}</p>
-        <p>${car.model}</p>
-        <p>${car.price}</p>
-        <p>${car.year}</p>
-        <p>${car.color}</p>
-        <img src="${car.imgUrl}" alt="somethingelse">
-      </div> -->
-    </div>
+  <form onsubmit="app.controllers.houseController.addHouse(event)">
+    <label for="bedrooms">bedrooms</label>
+    <input type="text" name="bedrooms" placeholder="Bedrooms" required>
+    <input type="number" name="year" placeholder="years" required>
+    <input type="text" name="bathrooms" placeholder="Bathrooms" required>
+    <input type="url" name="imgUrl" placeholder="Image Link" required>
+    <input type="number" name="levels" placeholder="levels" value="1" required>
+    <input type="number" name="price" placeholder="price" required>
+    <button type="submit">Add House</button>
+  </form>
+  <div id="cars"></div>
+  <div id="houses"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>

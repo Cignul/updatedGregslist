@@ -13,8 +13,10 @@ function drawCars(cars) {
         <p>${car.price}</p>
         <p>${car.year}</p>
         <p>${car.description}</p>
-        <img src="${car.imgUrl}" alt="somethingelse">
-    </div>
+        <img src="${car.imgUrl}" alt="car image">
+        <button onclick="app.controllers.carController.deleteCar('${car._id}')">DELETE</button>
+        <button onclick="app.controllers.carController.bid('${car._id}', ${car.price})">BID</button>
+    </div></div>
     `
   }
 
@@ -29,12 +31,23 @@ export default class CarController {
     carService.getCars(drawCars)
   }
 
-  // addCar(triggeredEvent) {
-  //   triggeredEvent.preventDefault();
-  //   let formData = triggeredEvent.target
-  //   carService.addCar(formData)
-  //   formData.reset()
-  //   drawCars()
-  // }
+  addCar(e) {
+    e.preventDefault();
+    let formData = e.target
+    carService.addCar(formData, drawCars)
+    formData.reset()
+  }
+  deleteCar(carId) {
+    carService.deleteCar(carId, drawCars)
+  }
+  bid(carId, price) {
+    price += 100
+    let update = {
+      price: price
+    }
+    carService.bid(carId, update, drawCars)
 
+
+
+  }
 }
